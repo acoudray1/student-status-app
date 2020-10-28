@@ -21,11 +21,11 @@ export class StudentService {
   }
 
   /**
-   * getStudentsByStatus sorts students by status and return a Map<String, Array<Object>>
+   * getStudents sorts students by status and return a Map<String, Array<Object>>
    * 
    * @return Map<String, Array<Object>>
    */
-  public getStudentsByStatus(): Map<String, Array<Object>> {
+  public getStudents(): Map<String, Array<Object>> {
     const students = this.toStudentsObject(jsonData);
     let cours = new Array<Object>();
     let teletravail = new Array<Object>();

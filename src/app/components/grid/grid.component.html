@@ -1,3 +1,5 @@
 <div class="grid">
-    <app-status-card></app-status-card>
+    <ng-container *ngFor="let s of status">
+        <app-status-card></app-status-card>
+    </ng-container>
 </div>
