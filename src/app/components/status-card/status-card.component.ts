@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from 'src/app/services/student.service';
 
 @Component({
   selector: 'app-status-card',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StatusCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private studentService: StudentService) {
+    studentService.getStudentsByStatus();
+  }
 
   ngOnInit(): void {
   }
