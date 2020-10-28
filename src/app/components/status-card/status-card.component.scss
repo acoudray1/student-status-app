@@ -10,6 +10,7 @@
     border-radius: 2%;
 
     .status-card-header {
+        position: relative;
         width: 100%;
         text-align: center;
         padding: 2% 0%;
@@ -20,6 +21,16 @@
         .header-title {
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             color: azure;
+        }
+
+        .header-status-info {
+            border-radius: 50%;
+            width: 4vw;
+            height: 4vw;
+            position: absolute;
+            top: -1.3vw;
+            right: -1.3vw;
+            background-color: aqua;
         }
     }
 }
