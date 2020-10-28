@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "student-status-app"
+    }
+  },
+  "defaultProject": "student-status-app",
+  "cli": {
+    "analytics": false
+  }
 }
