@@ -8,4 +8,18 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 2%;
+
+    .status-card-header {
+        width: 100%;
+        text-align: center;
+        padding: 2% 0%;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+        border-color: azure;
+
+        .header-title {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: azure;
+        }
+    }
 }
