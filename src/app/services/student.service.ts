@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Status } from '../models/status';
 import jsonData from '../../assets/data/students.json';
 
@@ -31,34 +31,32 @@ export class StudentService {
     let teletravail = new Array<Object>();
     let malade = new Array<Object>();
     let absent = new Array<Object>();
-    let studentsStatusMap = new Map<String, Array<Object>>();
+    let studentsByStatus = new Map<String, Array<Object>>();
 
     students.forEach((student: any) => {
-        switch (student.status) {
-            case Status.Teletravail:
-                teletravail.push(student);
-                break;
-            case Status.Cours:
-                cours.push(student);
-                break;
-            case Status.Malade:
-                malade.push(student);
-                break;
-            case Status.Absent:
-                absent.push(student);
-                break;
-            default:
-                console.log("This status is undefined: " + student.status);
-        }
+      switch (student.status) {
+        case Status.Teletravail:
+          teletravail.push(student);
+          break;
+        case Status.Cours:
+          cours.push(student);
+          break;
+        case Status.Malade:
+          malade.push(student);
+          break;
+        case Status.Absent:
+          absent.push(student);
+          break;
+        default:
+          console.log("This status is undefined: " + student.status);
+      }
     });
 
-    studentsStatusMap.set(Status.Teletravail, teletravail);
-    studentsStatusMap.set(Status.Cours, cours);
-    studentsStatusMap.set(Status.Malade, malade);
-    studentsStatusMap.set(Status.Absent, absent);
+    studentsByStatus.set(Status.Teletravail, teletravail);
+    studentsByStatus.set(Status.Cours, cours);
+    studentsByStatus.set(Status.Malade, malade);
+    studentsByStatus.set(Status.Absent, absent);
 
-    console.log(studentsStatusMap);
-
-    return studentsStatusMap;
-}
+    return studentsByStatus;
+  }
 }

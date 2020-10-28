@@ -8,11 +8,9 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class StatusCardComponent implements OnInit {
 
-  constructor(private studentService: StudentService) {
-    studentService.getStudentsByStatus();
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
-
+  
 }
