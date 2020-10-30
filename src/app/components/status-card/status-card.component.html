@@ -13,10 +13,32 @@
         <fa-icon [icon]="faGhost" *ngIf="status == 'Absent'"></fa-icon>
         </div>
     </div>
-    <div class="status-card-content">
-        <div class="student-item" *ngFor="let student of students" onclick="">
-            <div class="student-info"><span>{{student.name}}</span><fa-icon [icon]="faChevronRight"></fa-icon></div>
+    <div id="status-card-content-list">
+    <div class="student-item" *ngFor="let student of students" (click)="displayStudentInfo(student)">
+            <div class="student-info">
+                <span>{{student.name}}</span>
+                <fa-icon [icon]="faChevronRight"></fa-icon>
+            </div>
             <hr>
+        </div>
+    </div>
+    <div id="status-card-content-info">
+        <div class="status-card-content-info-header">
+            <h2>{{studentInfos.name}}</h2>
+            <fa-icon class="close-icon" [icon]="faTimes" (click)="displayStudentList()"></fa-icon>
+        </div>
+        <div class="status-card-content-info-content">
+            <div class="info-item">
+                <span>email: </span><p>{{studentInfos.email}}</p>
+            </div>
+            <hr>
+            <div class="info-item">
+                <span>phone: </span><p>{{studentInfos.phone}}</p>
+            </div>
+            <hr>
+            <div class="info-item">
+                <span>address: </span><p>{{studentInfos.address}}</p>
+            </div>
         </div>
     </div>
 </div>

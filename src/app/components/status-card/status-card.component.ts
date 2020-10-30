@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Status } from 'src/app/models/status';
-import { faChalkboardTeacher, faLaptopHouse, faVirus, faGhost, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChalkboardTeacher, faLaptopHouse, faVirus, faGhost, faChevronRight, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-status-card',
@@ -9,18 +9,47 @@ import { faChalkboardTeacher, faLaptopHouse, faVirus, faGhost, faChevronRight } 
 })
 export class StatusCardComponent implements OnInit {
 
-  @Input() students: Array<Object>;
+  @Input() students: Array<any>;
   @Input() status: Status;
-  
+  studentInfos: any;
+
   faChalkboardTeacher = faChalkboardTeacher;
   faLaptopHouse = faLaptopHouse;
   faVirus = faVirus;
   faGhost = faGhost;
   faChevronRight = faChevronRight;
+  faTimes = faTimes;
 
-  constructor() { }
+  constructor() { 
+    this.studentInfos = {
+      "_id": 0,
+      "name": "default name",
+      "email": "defaultname@proflex.com",
+      "phone": "+1 (801) 527-3471",
+      "address": "988 Lafayette Avenue, Cliffside, Louisiana, 4607",
+      "status": "En cours à IMT Atlantique"
+    }
+  }
 
   ngOnInit(): void {
   }
 
+  /**
+   * Displays the student informations
+   * 
+   * @param student 
+   */
+  public displayStudentInfo(student: any) {
+    this.studentInfos = student;
+    document.getElementById("status-card-content-list").style.display = "none";
+    document.getElementById("status-card-content-info").style.display = "flex";
+  }
+
+  /**
+   * Displays the student list
+   */
+  public displayStudentList() {
+    document.getElementById("status-card-content-list").style.display = "flex";
+    document.getElementById("status-card-content-info").style.display = "none";
+  }
 }

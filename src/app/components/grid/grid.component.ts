@@ -10,7 +10,7 @@ import { Status } from '../../models/status';
 export class GridComponent implements OnInit {
 
   public status: Array<String>;
-  public studentsStatusMap: Map<String, Array<Object>>;
+  public studentsStatusMap: Map<String, Array<any>>;
 
   constructor(private studentService: StudentService) { }
 
@@ -25,7 +25,7 @@ export class GridComponent implements OnInit {
    * @param status 
    * @return Array<Object>
    */
-  public getStudentsByStatus(status: Status): Array<Object> {
+  public getStudentsByStatus(status: Status): Array<any> {
     return this.studentsStatusMap.get(status).sort(function(a, b) {
       if (a.name < b.name) { return -1; }
       if (a.name > b.name) { return 1; }
