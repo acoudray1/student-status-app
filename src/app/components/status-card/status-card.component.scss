@@ -1,3 +1,33 @@
+@mixin header-status-info($status) {
+
+    border-radius: 50%;
+    width: 4vw;
+    height: 4vw;
+    position: absolute;
+    top: -1.3vw;
+    right: -1.3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: xx-large;
+    color: azure;
+
+    @if ($status == 'tt') {
+        background-color: rgb(163, 25, 94);
+    }
+    @if ($status == 'imt') {
+        background-color: rgb(9, 156, 41);
+    }
+    @if ($status == 'malade') {
+        background-color: rgb(201, 76, 31);
+    }
+    @if ($status == 'abs') {
+        background-color: rgb(59, 59, 201);
+    }
+}
+
 .status-card {
     width: 20vw;
     height: 30vh;
@@ -23,14 +53,20 @@
             color: azure;
         }
 
-        .header-status-info {
-            border-radius: 50%;
-            width: 4vw;
-            height: 4vw;
-            position: absolute;
-            top: -1.3vw;
-            right: -1.3vw;
-            background-color: aqua;
+        .header-status-info-teletravail {
+            @include header-status-info('tt');
+        }
+
+        .header-status-info-cours {
+            @include header-status-info('imt');
+        }
+
+        .header-status-info-malade {
+            @include header-status-info('malade');
+        }
+
+        .header-status-info-absent {
+            @include header-status-info('abs');
         }
     }
 }

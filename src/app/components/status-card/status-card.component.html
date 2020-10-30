@@ -1,8 +1,16 @@
 <div class="status-card">
     <div class="status-card-header">
         <span class="header-title">{{status}}</span>
-        <div class="header-status-info">
-            
+        <div [ngClass]="{
+            'header-status-info-teletravail': status == 'En Télétravail chez soi',
+            'header-status-info-cours': status == 'En cours à IMT Atlantique',
+            'header-status-info-malade': status == 'Malade',
+            'header-status-info-absent': status == 'Absent'
+        }">
+        <fa-icon [icon]="faLaptopHouse" *ngIf="status == 'En Télétravail chez soi'"></fa-icon>
+        <fa-icon [icon]="faChalkboardTeacher" *ngIf="status == 'En cours à IMT Atlantique'"></fa-icon>
+        <fa-icon [icon]="faVirus" *ngIf="status == 'Malade'"></fa-icon>
+        <fa-icon [icon]="faGhost" *ngIf="status == 'Absent'"></fa-icon>
         </div>
     </div>
     <div class="status-card-content">
