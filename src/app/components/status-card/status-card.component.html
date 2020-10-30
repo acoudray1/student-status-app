@@ -14,8 +14,9 @@
         </div>
     </div>
     <div class="status-card-content">
-        <ul>
-            
-        </ul>
+        <div class="student-item" *ngFor="let student of students" onclick="">
+            <div class="student-info"><span>{{student.name}}</span><fa-icon [icon]="faChevronRight"></fa-icon></div>
+            <hr>
+        </div>
     </div>
 </div>
