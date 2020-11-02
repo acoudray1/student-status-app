@@ -15,7 +15,12 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Choix de conception
 
-L'interface développé a été pensée pour être assez simple et intuitive, celle-ci permet de voir directement le statut des élèves. L'accès aux coordonnées des élèves se fait en un clic.
+L'interface développé a été pensée pour être assez simple et intuitive, celle-ci permet de voir directement le statut des élèves. L'accès aux coordonnées des élèves se fait en un clic.<br>
+<br>
+Le dossier `src` est divisé en 3 parties:
+* `components` qui contient un dossier correspondant à chaques composants.
+* `models` qui contient les définition de classes ou d'énumérations.
+* `services` qui contient les différents services nécessaires à l'application comme pour la récupération de données.
 
 ## Example
 
