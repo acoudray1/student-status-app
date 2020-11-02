@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
-nom: COUDRAY Axel
+nom: COUDRAY Axel <br>
 formation: FIL-A3
 
 ## Install
@@ -12,6 +12,10 @@ Run `git clone https://github.com/acoudray1/student-status-app.git` to download 
 Run `npm install` to get dependencies required.
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## Choix de conception
+
+L'interface développé a été pensée pour être assez simple et intuitive, celle-ci permet de voir directement le statut des élèves. L'accès aux coordonnées des élèves se fait en un clic.
 
 ## Example
 
