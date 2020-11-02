@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
+nom: COUDRAY Axel
+formation: FIL-A3
+
 ## Install
 
 Run `git clone https://github.com/acoudray1/student-status-app.git` to download repo and then `cd student-status-app`. <\br>
@@ -12,10 +15,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Example
 
-This project was tested only on _chrome_ and _firefox_ browsers, the website is not fully responsive and is adapted only for wide screens. An example of what you should see is : 
+This project was tested only on _chrome_ and _firefox_ browsers, the website is not fully responsive and is adapted only for wide screens. An example of what you should see is : <\br>
+
 <img
-src=“images/SubPronouns.jpg”
+src=“https://github.com/acoudray1/student-status-app/blob/main/demo.png”
 raw=true
-alt=“Subject Pronouns”
-style=“margin-right: 10px;”
+alt=“Example"
 />
