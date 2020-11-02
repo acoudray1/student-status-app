@@ -11,6 +11,7 @@ export class StatusCardComponent implements OnInit {
 
   @Input() students: Array<any>;
   @Input() status: Status;
+  @Input() index: number;
   studentInfos: any;
 
   faChalkboardTeacher = faChalkboardTeacher;
@@ -41,15 +42,21 @@ export class StatusCardComponent implements OnInit {
    */
   public displayStudentInfo(student: any) {
     this.studentInfos = student;
-    document.getElementById("status-card-content-list").style.display = "none";
-    document.getElementById("status-card-content-info").style.display = "flex";
+    let contentList = document.getElementsByClassName("status-card-content-list") as HTMLCollectionOf<HTMLElement>;
+    contentList[this.index].style.display = "none";
+
+    let contentInfo = document.getElementsByClassName("status-card-content-info") as HTMLCollectionOf<HTMLElement>;
+    contentInfo[this.index].style.display = "flex";
   }
 
   /**
    * Displays the student list
    */
   public displayStudentList() {
-    document.getElementById("status-card-content-list").style.display = "flex";
-    document.getElementById("status-card-content-info").style.display = "none";
+    let contentList = document.getElementsByClassName("status-card-content-list") as HTMLCollectionOf<HTMLElement>;
+    contentList[this.index].style.display = "flex";
+    
+    let contentInfo = document.getElementsByClassName("status-card-content-info") as HTMLCollectionOf<HTMLElement>;
+    contentInfo[this.index].style.display = "none";
   }
 }
