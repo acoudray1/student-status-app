@@ -12,19 +12,30 @@
     align-items: center;
     text-align: center;
     font-size: xx-large;
-    color: blanchedalmond;
+    color: azure;
+    border-width: 2px;
+    border-style: solid;
+    color: rgba(9, 22, 37, 1);
 
     @if ($status == 'tt') {
-        background-color: rgb(163, 25, 94);
+        //color: #2dccff;
+        border-color: #2dccff;
+        background-color: #8fe3ff;
     }
     @if ($status == 'imt') {
-        background-color: rgb(9, 156, 41);
+        //color: #56f000;
+        border-color: #56f000;
+        background-color: #a3ec7c;
     }
     @if ($status == 'malade') {
-        background-color: rgb(201, 76, 31);
+        //color: #ff3838;
+        border-color: #ff3838;
+        background-color: #f89c9c;
     }
     @if ($status == 'abs') {
-        background-color: rgb(59, 59, 201);
+        //color: #fce83a;
+        border-color: #fce83a;
+        background-color: #fdf4a1;
     }
 }
 
@@ -37,7 +48,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border-radius: 2%;
+    border-radius: 12px;
 
     .status-card-header {
         position: relative;
@@ -46,12 +57,16 @@
         padding: 2% 0%;
         border-bottom-style: solid;
         border-bottom-width: 1px;
-        border-color: blanchedalmond;
+        border-color: azure;
+        background-color: blanchedalmond;
+        border-top-left-radius: 10px 10px;
+        border-top-right-radius: 10px 10px;
+
 
         .header-title {
             font-weight: bold;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            color: blanchedalmond;
+            color: rgba(9, 22, 37, 1);
         }
 
         .header-status-info-teletravail {
