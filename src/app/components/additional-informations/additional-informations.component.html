@@ -1,0 +1,10 @@
+<div class="additional-informations">
+    <div class="informations-header">
+        <h1>Informations de cours</h1>
+    </div>
+    <div class="informations-display">
+        <span>{{currentDateTime}}</span>
+        <label>Nom du cours :</label><input type="text" class="form-control" value="{{courseName}}" (input)="onCourseChange($event.target.value)">
+        <label>Lien zoom :</label><input type="text" class="form-control" value="{{zoomLink}}" (input)="onZoomLinkChange($event.target.value)">
+    </div>
+</div>
