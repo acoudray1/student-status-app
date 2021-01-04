@@ -5,12 +5,13 @@ var WebSocketServer = require('ws').Server;
 var wss = new WebSocketServer({port: 9090});
 
 //all connected to the server users
-var users = {};
+var usersSocket = [];
 
 //when a user connects to our sever
 wss.on('connection', function(connection) {
 
-   console.log("User connected");
+   usersSocket.push(connection);
+   console.log("User connected. \n Users connected count: " + usersSocket.length);
 
    //when server gets a message from a connected user
    connection.on('message', function(message) {
@@ -19,45 +20,35 @@ wss.on('connection', function(connection) {
       //accepting only JSON messages
       try {
          data = JSON.parse(message);
-         console.log(data);
       } catch (e) {
          console.log("Invalid JSON");
          data = {};
       }
-    
-      if (data != null) {
-          sendTo(connection, {
-              type: "course-informations",
-              message: data
-          })
-      } else {
-        sendTo(connection, {
-            type: "error",
-            message: "Command not found: " + data.type
-         });
+      
+      switch(data.type) {
+        case "course-informations":
+            usersSocket.forEach(element => {
+                sendTo(element, {
+                    type: "course-informations",
+                    message: data.message
+                })
+            });
+            break;
+        default:
+            sendTo(connection, {
+                type: "error",
+                message: "Command not found: " + data.type
+            });
+            break;
       }
    });
 
    //when user exits, for example closes a browser window
    //this may help if we are still in "offer","answer" or "candidate" state
-   connection.on("close", function() {
-
-      if(connection.name) {
-      delete users[connection.name];
-
-         if(connection.otherName) {
-            console.log("Disconnecting from ", connection.otherName);
-            var conn = users[connection.otherName];
-            conn.otherName = null;
-
-            if(conn != null) {
-               sendTo(conn, {
-                  type: "leave"
-               });
-            }
-         }
-      }
-   });
+    connection.on("close", function() {
+        usersSocket.splice(usersSocket.indexOf(connection), 1);
+        console.log("User deconnected. \n Users connected count: " + usersSocket.length);
+    });
 
    //connection.send("Hello world");
 

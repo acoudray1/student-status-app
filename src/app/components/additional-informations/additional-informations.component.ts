@@ -29,20 +29,21 @@ export class AdditionalInformationsComponent implements OnInit {
     this.webSocket.connect().pipe(
       takeUntil(this.destroyed$)
     ).subscribe(messages => {
-      console.log('****\n' + messages + '\n****');
-      this.courseName = JSON.parse(messages).courseName;
-      this.zoomLink = JSON.parse(messages).zoomLink;
+      if (messages.type == "course-informations") {
+        this.courseName = messages.message.courseName;
+        this.zoomLink = messages.message.zoomLink;
+      }
     });
   }
 
   onCourseChange(value: String): void {
-    console.log(JSON.stringify({ courseName: value, zoomLink: this.zoomLink }));
-    this.webSocket.send(JSON.stringify({ courseName: value, zoomLink: this.zoomLink }));
+    console.log({type: "course-informations", message: { courseName: value, zoomLink: this.zoomLink }});
+    this.webSocket.send({type: "course-informations", message: { courseName: value, zoomLink: this.zoomLink }});
   }
 
   onZoomLinkChange(value: String): void {
-    console.log(JSON.stringify({ courseName: this.courseName, zoomLink: value }));
-    this.webSocket.send(JSON.stringify({ courseName: this.courseName, zoomLink: value }));
+    console.log({type: "course-informations", message: { courseName: this.courseName, zoomLink: value }});
+    this.webSocket.send({type: "course-informations", message: { courseName: this.courseName, zoomLink: value }});
   }
 
   ngOnDestroy() {
